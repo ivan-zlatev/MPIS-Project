@@ -22,8 +22,8 @@ architecture Behavioral of multiplier_test is
 	
 	-- variables
 	shared variable expected: integer;
-	shared variable X_value: int_array(9 downto 0) := (1,2,3,4,5,6,7,8,9,10);
-	shared variable Y_value: int_array(9 downto 0) := (10,9,8,7,6,5,4,3,2,1);
+	shared variable X_value: int_array(9 downto 0) := (1,2,3,4,5,6,7,8,9,10); -- array for the first number
+	shared variable Y_value: int_array(9 downto 0) := (10,9,8,7,6,5,4,3,2,1); -- array for the second number
 
 begin
 
@@ -41,7 +41,7 @@ begin
 		end if;
 	end process;
 
-	reset_process: process
+	testing_process: process
 	begin
 		-- reset testing
 		reset <= '0';
@@ -51,7 +51,7 @@ begin
 		wait until falling_edge(clock);
 		reset <= '0';
 	 
-		-- multiplication testing
+		-- multiplication testing using X and Y array values
 		for i in X_value'length-1 downto 0 loop
 			wait until falling_edge(clock);
 			num1 <= to_unsigned(X_value(i),M);
