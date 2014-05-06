@@ -10,7 +10,7 @@ architecture Behavioral of multiplier_test is
 	type int_array is array( natural range<>) of integer;
 
 	-- constants
-	constant M,N: positive := 4;
+	constant M,N: positive := 5;
 	constant CLOCK_PERIOD : time := 1 us;
 
 	-- signals
@@ -22,8 +22,8 @@ architecture Behavioral of multiplier_test is
 	
 	-- variables
 	shared variable expected: integer;
-	shared variable X_value: int_array(9 downto 0) := (1,2,3,4,5,6,7,8,9,10); -- array for the first number
-	shared variable Y_value: int_array(9 downto 0) := (10,9,8,7,6,5,4,3,2,1); -- array for the second number
+	shared variable X_value: int_array(9 downto 0) := (10, 13, 16, 19, 22, 25, 28, 31, 29, 17); -- array for the first number
+	shared variable Y_value: int_array(9 downto 0) := (11, 12, 15, 14, 18, 16, 22, 27, 24, 3); -- array for the second number
 
 begin
 
